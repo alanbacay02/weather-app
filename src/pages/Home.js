@@ -1,11 +1,11 @@
 import React from 'react'
-import Searchbar from '../components/Searchbar'
+import Searchbar from '../components/searchbar/Searchbar.jsx'
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Searchbar />
-    </div>
+    </>
   )
 }
 
