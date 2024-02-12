@@ -10,7 +10,7 @@ export const useUserLocation = () => {
             const apiUrl = `https://us1.locationiq.com/v1/reverse?key=${process.env.REACT_APP_LOCATIONIQ_API}&lat=${latitude}&lon=${longitude}&format=json&addressdetails=1`
             const response = await fetch(apiUrl)
             const result = await response.json()
-            resolve(result.address)
+            resolve({ address: result.address, latitude, longitude })
           } catch (error) {
             reject(error)
           }
