@@ -82,3 +82,7 @@
   gap: 4px;
   margin-top: 8px;
 }
+
+.drop-loc-button {
+  text-align: left;
+}
