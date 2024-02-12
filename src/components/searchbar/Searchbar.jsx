@@ -11,7 +11,7 @@ import {
 
 // Imports for custom hooks
 import { useUserLocation } from './hooks/useUserLocation'
-import { useSearchLocation } from './hooks/useSearchLocation'
+import { useSearchAutoComplete } from './hooks/useSearchAutoComplete'
 
 // Import for helper functions
 import { filterArrayOfObjects } from './helper/filterArrayOfObjects'
@@ -25,7 +25,7 @@ const Searchbar = () => {
   const searchMenuRef = useRef()
 
   const { getLocation } = useUserLocation()
-  const { getLocationResults } = useSearchLocation()
+  const { getAutoCompleteResults } = useSearchAutoComplete()
 
   useEffect(() => {
     // event handler called during mousedown events
@@ -62,7 +62,7 @@ const Searchbar = () => {
     // set new timeout
     const newTimeoutId = setTimeout(async () => {
       try {
-        const result = await getLocationResults(searchQuery)
+        const result = await getAutoCompleteResults(searchQuery)
         const suggestions = result.map((obj) => obj.address)
         let filteredSuggestions = filterArrayOfObjects(suggestions, [
           'name',
